@@ -23,6 +23,18 @@ body {
 .btn:hover {
     background-color: #3e8e41;
 }
+.delete-btn{
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+
+}
+.delete-btn:hover{
+    background-color:  #3e8e41;}
+    
 h1{
     font-family: 'Times New Roman', Times, serif;
     color: rgb(2, 79, 96);

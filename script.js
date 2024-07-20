@@ -1,6 +1,13 @@
 let studentData = JSON.parse(localStorage.getItem('students') || '[]');
 let sno = 1;
 
+
+function deleteStudent(index) {
+  studentData.splice(index, 1);
+  localStorage.setItem('students', JSON.stringify(studentData));
+  populateTable();
+}
+
 // Function to populate the table with data from local storage
 function populateTable() {
   const tableBody = document.getElementById('student-table-body');
@@ -14,6 +21,7 @@ function populateTable() {
         <td>${student.fatherName}</td>
         <td>${student.email}</td>
         <td>${student.institute}</td>
+        <td><button class="delete-btn" onclick="deleteStudent(${index})">Delete</button></td>
       </tr>
     `;
     tableBody.innerHTML += tableRow;
@@ -34,9 +42,9 @@ document.getElementById('submit-btn').addEventListener('click', (e) => {
   const email = document.getElementById('email').value;
   const institute = document.getElementById('institute').value;
 
+
   if (name && fatherName && email && institute) {
     const student = {
-      sno,
       id: `STU-${sno}`,
       name,
       fatherName,
@@ -59,3 +67,4 @@ document.getElementById('submit-btn').addEventListener('click', (e) => {
     alert('Please fill in all the fields!');
   }
 });
+
